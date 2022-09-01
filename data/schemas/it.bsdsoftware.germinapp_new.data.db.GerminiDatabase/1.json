@@ -1,0 +1,563 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "5115a11f303a87d8bea2a2c034adc581",
+    "entities": [
+      {
+        "tableName": "phytosanitary_categories",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `category` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "phytosanitary_entities",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `entity` TEXT NOT NULL, `category_id` INTEGER NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`category_id`) REFERENCES `phytosanitary_categories`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entity",
+            "columnName": "entity",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryId",
+            "columnName": "category_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "phytosanitary_categories",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "category_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "contracts",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id_coltivatore` TEXT NOT NULL, `id_podere` TEXT NOT NULL, `nome_coltivatore` TEXT NOT NULL, `indirizzo` TEXT NOT NULL, `localita` TEXT NOT NULL, `telefono` TEXT NOT NULL, `email` TEXT NOT NULL, `zona_di_produzione` TEXT NOT NULL, `latitudine1` TEXT NOT NULL, `latitudine2` TEXT NOT NULL, `longitudine1` TEXT NOT NULL, `longitudine2` TEXT NOT NULL, `note` TEXT NOT NULL, `id_articolo` TEXT NOT NULL, `articolo` TEXT NOT NULL, `lotto` TEXT NOT NULL, `specie` TEXT NOT NULL, `varieta` TEXT NOT NULL, `tipo_raccolta` TEXT NOT NULL, `tipo_linea` TEXT NOT NULL, `tipo_prodotto` TEXT NOT NULL, `sigla` TEXT NOT NULL, `coltura` TEXT NOT NULL, `destinazione` TEXT NOT NULL, `HA_contratto` TEXT NOT NULL, `quantita_attesa` TEXT NOT NULL, `HA_seminati` TEXT NOT NULL, `data_semina` TEXT NOT NULL, `data_semina_M` TEXT NOT NULL, `HA_netti_dopo_distruzione` TEXT NOT NULL, PRIMARY KEY(`id_coltivatore`, `id_podere`, `id_articolo`, `lotto`))",
+        "fields": [
+          {
+            "fieldPath": "coltivatoreId",
+            "columnName": "id_coltivatore",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "podereId",
+            "columnName": "id_podere",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomeColtivatore",
+            "columnName": "nome_coltivatore",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "indirizzo",
+            "columnName": "indirizzo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localita",
+            "columnName": "localita",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefono",
+            "columnName": "telefono",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "zonaDiProduzione",
+            "columnName": "zona_di_produzione",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latitudine1",
+            "columnName": "latitudine1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latitudine2",
+            "columnName": "latitudine2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudine1",
+            "columnName": "longitudine1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitudine2",
+            "columnName": "longitudine2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idArticolo",
+            "columnName": "id_articolo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "articolo",
+            "columnName": "articolo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lotto",
+            "columnName": "lotto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "specie",
+            "columnName": "specie",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "varieta",
+            "columnName": "varieta",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipoRaccolta",
+            "columnName": "tipo_raccolta",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipoLinea",
+            "columnName": "tipo_linea",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipoProdotto",
+            "columnName": "tipo_prodotto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sigla",
+            "columnName": "sigla",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "coltura",
+            "columnName": "coltura",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "destinazione",
+            "columnName": "destinazione",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "HAContratto",
+            "columnName": "HA_contratto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "QuantitaAttesa",
+            "columnName": "quantita_attesa",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "HASeminati",
+            "columnName": "HA_seminati",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "DataSemina",
+            "columnName": "data_semina",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "DataSeminaM",
+            "columnName": "data_semina_M",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "HANettiDopoDistruzione",
+            "columnName": "HA_netti_dopo_distruzione",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id_coltivatore",
+            "id_podere",
+            "id_articolo",
+            "lotto"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "detections",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`local_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `remote_id` INTEGER, `utentePK` INTEGER NOT NULL, `utenteUsername` TEXT NOT NULL, `utenteName` TEXT NOT NULL, `utenteLastName` TEXT NOT NULL, `data` TEXT NOT NULL, `ora_inizio` TEXT NOT NULL, `ora_fine` TEXT NOT NULL, `modificato` INTEGER NOT NULL, `note` TEXT NOT NULL, `id_articolo` TEXT NOT NULL, `id_podere` TEXT NOT NULL, `lotto` TEXT NOT NULL, `id_coltivatore` TEXT NOT NULL, FOREIGN KEY(`id_coltivatore`, `id_podere`, `id_articolo`, `lotto`) REFERENCES `contracts`(`id_coltivatore`, `id_podere`, `id_articolo`, `lotto`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "localId",
+            "columnName": "local_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "remoteId",
+            "columnName": "remote_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "utentePK",
+            "columnName": "utentePK",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "utenteUsername",
+            "columnName": "utenteUsername",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "utenteName",
+            "columnName": "utenteName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "utenteLastName",
+            "columnName": "utenteLastName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oraInizio",
+            "columnName": "ora_inizio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oraFine",
+            "columnName": "ora_fine",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modificato",
+            "columnName": "modificato",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idArticolo",
+            "columnName": "id_articolo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "podereId",
+            "columnName": "id_podere",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lotto",
+            "columnName": "lotto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "coltivatoreId",
+            "columnName": "id_coltivatore",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "local_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_detections_remote_id",
+            "unique": true,
+            "columnNames": [
+              "remote_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_detections_remote_id` ON `${TABLE_NAME}` (`remote_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "contracts",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "id_coltivatore",
+              "id_podere",
+              "id_articolo",
+              "lotto"
+            ],
+            "referencedColumns": [
+              "id_coltivatore",
+              "id_podere",
+              "id_articolo",
+              "lotto"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "multimedia",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`type` INTEGER NOT NULL, `path` TEXT NOT NULL, `to_sync` INTEGER NOT NULL, `local_id` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, FOREIGN KEY(`local_id`) REFERENCES `detections`(`local_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "path",
+            "columnName": "path",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "toSync",
+            "columnName": "to_sync",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localId",
+            "columnName": "local_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "detections",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "local_id"
+            ],
+            "referencedColumns": [
+              "local_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "detected_phytosanitaries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`local_id` INTEGER NOT NULL, `entity` INTEGER NOT NULL, `detected` INTEGER NOT NULL, PRIMARY KEY(`local_id`, `entity`), FOREIGN KEY(`local_id`) REFERENCES `detections`(`local_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`entity`) REFERENCES `phytosanitary_entities`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "localId",
+            "columnName": "local_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entity",
+            "columnName": "entity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "detected",
+            "columnName": "detected",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "local_id",
+            "entity"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "detections",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "local_id"
+            ],
+            "referencedColumns": [
+              "local_id"
+            ]
+          },
+          {
+            "table": "phytosanitary_entities",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "entity"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "phytosanitary_species",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`entity_id` INTEGER NOT NULL, `specie` TEXT NOT NULL, PRIMARY KEY(`entity_id`, `specie`), FOREIGN KEY(`entity_id`) REFERENCES `phytosanitary_entities`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "idEntity",
+            "columnName": "entity_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "specie",
+            "columnName": "specie",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "entity_id",
+            "specie"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "phytosanitary_entities",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "entity_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5115a11f303a87d8bea2a2c034adc581')"
+    ]
+  }
+}
